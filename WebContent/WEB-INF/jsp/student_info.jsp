@@ -7,10 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/student/add.action">
-		姓名：<input type="text" name="name"/><br/>
-		年龄：<input type="text" name="age"/><br/>
-		<input type="submit" value="注册"/><br/>
-	</form>
+	student：${student}<br/>
+	teacher：${teacher}<br/>
+	request: ${requestScope.student}<br/>
+	session: ${sessionScope.student}<br/>
+	application:${applicationScope.student}<br/>
+	${id}<br/>
+	${name}<br/>
+	${age}<br/>
 </body>
 </html>

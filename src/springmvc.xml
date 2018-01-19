@@ -12,4 +12,19 @@
 	
 	<!-- 注解驱动 -->
 	<mvc:annotation-driven/>
+	
+	<!-- 视图解析器
+		如果Controller中书写的是视图的逻辑名，这个视图解析器必须要配置。
+		前缀+视图逻辑名+后缀=真实路径
+		如果Controller中书写的是视图的真实名称，这个视图解析器就不需要配置
+	 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- 路径前缀 -->
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<!-- 路径后缀 -->
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	
+	
 </beans>

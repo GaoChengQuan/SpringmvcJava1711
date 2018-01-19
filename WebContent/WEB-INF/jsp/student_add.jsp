@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${student}
+	<form action="${pageContext.request.contextPath}/student/add4.action">
+		姓名：<input type="text" name="name"/><br/>
+		年龄：<input type="text" name="age"/><br/>
+		<input type="submit" value="注册"/><br/>
+	</form>
 </body>
 </html>
