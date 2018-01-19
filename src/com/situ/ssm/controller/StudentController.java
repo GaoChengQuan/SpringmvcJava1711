@@ -87,7 +87,7 @@ public class StudentController {
 		return "redirect:/student/findAll.action";
 	}
 	
-	@RequestMapping(value="findAll")
+	@RequestMapping(value="/findAll")
 	public String  findAll() {
 		return "student_info";
 	}
