@@ -28,6 +28,7 @@ public class StudentController {
 	
 	@RequestMapping(value="/getPage")
 	public ModelAndView getPage() {
+		System.out.println("StudentController.getPage()");
 		ModelAndView modelAndView = new ModelAndView();
 		//modelAndView.setViewName("/WEB-INF/jsp/student_add.jsp");
 		modelAndView.setViewName("student_add");

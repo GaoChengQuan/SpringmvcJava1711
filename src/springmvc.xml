@@ -25,6 +25,25 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
+	<!-- 配置拦截器,可以配置多个拦截器-->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!-- /*只能拦截一层的请求， /**可以拦截多层的请求 -->
+			<mvc:mapping path="/**"/>
+			<bean class="com.situ.ssm.interceptor.HandlerInterceptor1"/>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<!-- /*只能拦截一层的请求， /**可以拦截多层的请求 -->
+			<mvc:mapping path="/**"/>
+			<bean class="com.situ.ssm.interceptor.HandlerInterceptor2"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	
-	
+	<!-- 配置文件上传的解析器 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设置上传文件的最大尺寸 10MB B-->
+		<property name="maxUploadSize">
+			<value>#{10*1024*1024}</value>
+		</property>
+	</bean>
 </beans>
