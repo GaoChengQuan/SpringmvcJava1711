@@ -20,17 +20,27 @@ import org.springframework.web.servlet.ModelAndView;
 import com.situ.ssm.entity.StudentTeacherBean;
 import com.situ.ssm.entity.StudentsBean;
 import com.situ.ssm.entity.Teacher;
+import com.situ.ssm.service.IBanjiService;
+import com.situ.ssm.service.IStudentService;
+import com.situ.ssm.service.impl.BanjiServiceImpl;
+import com.situ.ssm.service.impl.StudentServiceImpl;
+import com.situ.ssm.entity.Banji;
 import com.situ.ssm.entity.Student;
 
 @Controller
 @RequestMapping(value="/student")
 public class StudentController {
+	private IBanjiService banjiService = new BanjiServiceImpl();
+	private IStudentService studentService = new StudentServiceImpl();
 	
 	@RequestMapping(value="/getPage")
 	public ModelAndView getPage() {
 		System.out.println("StudentController.getPage()");
+		
+		List<Banji> list = banjiService.findAll();
+		
 		ModelAndView modelAndView = new ModelAndView();
-		//modelAndView.setViewName("/WEB-INF/jsp/student_add.jsp");
+		modelAndView.addObject("list", list);
 		modelAndView.setViewName("student_add");
 		return modelAndView;
 	}
@@ -38,6 +48,8 @@ public class StudentController {
 	@RequestMapping(value="/add")
 	public ModelAndView add(Student student) {
 		System.out.println(student);
+		studentService.add(student);
+		
 		//request.setAttribute("student", student);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("student", student);
